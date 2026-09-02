@@ -9,11 +9,16 @@
   --accent:        #22d3ee;
 }
 
-@theme inline {
+/* Theme variables exposed as standard CSS custom properties. */
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-1: #22d3ee; /* accent (ciano) */
+  --color-2: #67e8f9; /* accent claro */
+  --color-3: #fafafa; /* txto principal */
+  --color-4: #a1a1aa; /* texto secundário */
 }
 
 @media (prefers-color-scheme: dark) {

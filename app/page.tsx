@@ -10,11 +10,13 @@ import { Education } from '@/components/Education'
 import { Certifications } from '@/components/Certifications'
 import { Contact } from '@/components/Contact'
 import { Footer } from '@/components/Footer'
+import { ProfileOrbit } from "@/components/motion/ProfileOrbit";
 
 export default function Home() {
   return (
     <>
       <Header />
+      <ProfileOrbit />
       <main>
         <Hero />
         <About />
