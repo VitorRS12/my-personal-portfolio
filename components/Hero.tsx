@@ -51,6 +51,7 @@ export function Hero() {
         <div className="mt-10 flex items-center gap-4"> 
           <button
             type="button"
+            className="cursor-target"
             onClick={() => {
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }}
@@ -59,6 +60,7 @@ export function Hero() {
           </button>
           <button
             type="button"
+            className="cursor-target"
             onClick={() => {
               window.location.href = `mailto:${heroData.links.email}`
             }}

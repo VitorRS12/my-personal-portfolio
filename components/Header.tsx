@@ -1,5 +1,6 @@
 'use client'
   
+import { GooeyNav } from '@/components/ui/GooeyNav'
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '@/data/navigation'
@@ -56,22 +57,9 @@ return () => observer.disconnect()
           EV
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'text-sm transition-colors hover:text-text-primary',
-                activeSection === link.href
-                  ? 'text-accent'
-                  : 'text-text-secondary'
-              )}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+       <div className="hidden md:block">
+        <GooeyNav items={navLinks} initialActiveIndex={0} />
+    </div>
 
         <button
           className="cursor-target text-text-primary md:hidden"
@@ -90,7 +78,7 @@ return () => observer.disconnect()
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="cursor-target py-2 text-sm text-text-secondary hover:text-text-primary"
+              className="py-2 text-sm text-text-secondary hover:text-text-primary"
             >
               {link.label}
             </a>
