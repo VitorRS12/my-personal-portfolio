@@ -1,3 +1,5 @@
+'use client'
+
 import { Mail, ArrowRight } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { heroData } from "@/data/hero"
@@ -34,7 +36,7 @@ export function Hero() {
 
       <FadeIn delay={0.4}>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-          {heroData.stacks.map((tech) => (
+          {heroData.stack.map((tech) => (
             <span
             key={tech}
             className="rounded-full border border-border px-3 py-1 font-mono text-xs texte-text-secondary" 
@@ -74,7 +76,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="text-text-secondary transition-colors hover:text-accent"
+              className="cursor-target text-text-secondary transition-colors hover:text-accent"
             >
               <FaGithub size={20} />
             </a>
@@ -84,7 +86,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-text-secondary transition-colors hover:text-accent"
+              className="cursor-target text-text-secondary transition-colors hover:text-accent"
             >
               <FaLinkedin size={20} />
             </a>
@@ -92,7 +94,7 @@ export function Hero() {
             <a
               href={`mailto:${heroData.links.email}`}
               aria-label="E-mail"
-              className="text-text-secondary transition-colors hover:text-accent"
+              className="cursor-target text-text-secondary transition-colors hover:text-accent"
             >
               <Mail size={20} />
             </a>

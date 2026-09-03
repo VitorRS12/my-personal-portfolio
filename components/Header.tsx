@@ -74,7 +74,7 @@ return () => observer.disconnect()
         </nav>
 
         <button
-          className="text-text-primary md:hidden"
+          className="cursor-target text-text-primary md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={isOpen}
@@ -90,7 +90,7 @@ return () => observer.disconnect()
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="py-2 text-sm text-text-secondary hover:text-text-primary"
+              className="cursor-target py-2 text-sm text-text-secondary hover:text-text-primary"
             >
               {link.label}
             </a>

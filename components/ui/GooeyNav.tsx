@@ -191,7 +191,7 @@ useEffect(() => {
                   href={item.href}
                   onClick={(e) => handleClick(e, index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="inline-block px-[1em] py-[0.6em] text-sm outline-none"
+                  className="cursor-target inline-block px-[1em] py-[0.6em] text-sm outline-none"
                 >
                   {item.label}
                 </a>
