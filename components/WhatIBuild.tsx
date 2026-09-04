@@ -6,8 +6,29 @@ import { Card } from '@/components/ui/Card'
 
 export function WhatIBuild() {
   return (
-    <section id="what-i-build" className="flex min-h-screen items-center justify-center">
-      <p className="text-text-secondary">What I Build — em construção</p>
-    </section>
+    <Section id="what-i-build">
+      <FadeIn>
+        <h2 className="font-mono text-sm text-accent">O que eu construo</h2>
+      </FadeIn>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {whatIBuildData.map((item, i) => {
+          const Icon = item.icons
+          return (
+            <FadeIn key={item.title} delay={i * 0.1}>
+              <Card className="cursor-target h-full">
+                <Icon size={24} className="text-accent" />
+                <h3 className="mt-4 font-semibold text-text-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-text-secondary">
+                  {item.description}
+                </p>
+              </Card>
+            </FadeIn>
+          )
+        })}
+      </div>
+    </Section>
   )
 }
