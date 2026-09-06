@@ -72,7 +72,7 @@ export function GooeyNav({
             particle.style.setProperty('--end-y', `${p.end[1]}px`)
             particle.style.setProperty('--time', `${p.time}ms`)
             particle.style.setProperty('--scale', `${p.scale}`)
-            particle.style.setProperty('--color', `var(--color-${p.color}, white)`)
+            particle.style.setProperty('--color', `var(--particle-${p.color}, white)`)
             particle.style.setProperty('--rotate', `${p.rotate}deg`)
             point.classList.add('point')
             particle.appendChild(point)
@@ -138,6 +138,12 @@ useEffect(() => {
       if (currentActiveLi) updateEffectPosition(currentActiveLi)
     })
     resizeObserver.observe(containerRef.current)
+
+    const timeout = setTimeout(() => {
+      const currentActiveLi = navRef.current?.querySelectorAll('li')[activeIndex] as HTMLElement
+      if (currentActiveLi) updateEffectPosition(currentActiveLi)
+    }, 150)
+
     return () => resizeObserver.disconnect()
   }, [activeIndex])
 
@@ -146,10 +152,10 @@ useEffect(() => {
         <style>{`
         .effect { position: absolute; opacity: 1; pointer-events: none; display: grid; place-items: center; z-index: 1; }
         .effect.text { color: white; transition: color 0.3s ease; }
-        .effect.text.active { color: black; }
+        .effect.text.active { color: var(--color-background); }
         .effect.filter { filter: blur(7px) contrast(100) blur(0); mix-blend-mode: lighten; }
         .effect.filter::before { content: ""; position: absolute; inset: -75px; z-index: -2; background: black; }
-        .effect.filter::after { content: ""; position: absolute; inset: 0; background: white; transform: scale(0); opacity: 0; z-index: -1; border-radius: 9999px; }
+        .effect.filter::after { content: ""; position: absolute; inset: 0; background: var(--color-accent); transform: scale(0); opacity: 0; z-index: -1; border-radius: 9999px; }
         .effect.active::after { animation: pill 0.3s ease both; }
         @keyframes pill { to { transform: scale(1); opacity: 1; } }
         .particle, .point { display: block; opacity: 0; width: 20px; height: 20px; border-radius: 9999px; transform-origin: center; }

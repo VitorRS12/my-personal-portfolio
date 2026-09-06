@@ -17,7 +17,6 @@ export function About() {
           </FadeIn>
         ))}
       </div>
-      <p className="text-text-secondary">About — em construção</p>
     </section>
   )
 }
