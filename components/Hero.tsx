@@ -12,6 +12,10 @@ export function Hero() {
       id="hero" 
       className="flex min-h-screen flex-col items-center justify-center px-6 text-center"
       >
+        {/*Espaço reservado para a foto -ProfileOrbit é fixed, isso só evita sobreposição de Layout*/}
+        <div className="hidden shrink-0 lg:block" style={{ width: 280 }} />
+        
+        <div className="flex flex-col items-center lg:items-start">
       <FadeIn>
         <p className="font-mono text-sm text-accent">{heroData.greeting}</p>
       </FadeIn>
@@ -40,7 +44,7 @@ export function Hero() {
             <span
             key={tech}
             className="rounded-full border border-border px-3 py-1 font-mono text-xs texte-text-secondary" 
-          >
+            >
             {tech}
           </span>
           ))}
@@ -55,7 +59,7 @@ export function Hero() {
             onClick={() => {
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }}
-          >
+            >
             Ver Projetos <ArrowRight size={16} className="ml-2" />
           </button>
           <button
@@ -64,7 +68,7 @@ export function Hero() {
             onClick={() => {
               window.location.href = `mailto:${heroData.links.email}`
             }}
-          >
+            >
             Contato
           </button>
         </div>
@@ -79,7 +83,7 @@ export function Hero() {
               rel="noopener noreferrer"
               aria-label="GitHub"
               className="cursor-target text-text-secondary transition-colors hover:text-accent"
-            >
+              >
               <FaGithub size={20} />
             </a>
 
@@ -89,7 +93,7 @@ export function Hero() {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="cursor-target text-text-secondary transition-colors hover:text-accent"
-            >
+              >
               <FaLinkedin size={20} />
             </a>
 
@@ -97,11 +101,12 @@ export function Hero() {
               href={`mailto:${heroData.links.email}`}
               aria-label="E-mail"
               className="cursor-target text-text-secondary transition-colors hover:text-accent"
-            >
+              >
               <Mail size={20} />
             </a>
         </div>
       </FadeIn>
+    </div>
     </section>
   )
 }

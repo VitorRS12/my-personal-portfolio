@@ -56,14 +56,15 @@ export function ProfileOrbit() {
             <motion.div 
              style={{ borderRadius, borderColor: 'var(--color-border)' }}
              className="absolute inset-0 overflow-hidden"
+             //bordar só aparece quando o avatar ficar pequeno
             >
                 <motion.div style={{ opacity: borderOpacity }} className="absolute inset-0 rounded-[inherit] border border-border" />
                     <Image
                         src="/images/profile.jpg"
                         alt="Foto de Edelson Vitor"
                         fill
-                        sizes="200px"
-                        className="object-cover"
+                        sizes="{`${BOX_SIZE}px`}"
+                        className="object-contain"
                         priority
                     />
                 </motion.div>
