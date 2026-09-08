@@ -1,20 +1,29 @@
 'use client'
 
+import { useRef } from 'react'
 import { Mail, ArrowRight } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { heroData } from "@/data/hero"
+import { MatrixRain } from '@/components/motion/MatrixRain'
 import { Button } from "@/components/Button"
-import{ FadeIn } from "@/components/motion/FadeIn"
+import { FadeIn } from "@/components/motion/FadeIn"
+import { ProfileOrbit } from '@/components/motion/ProfileOrbit'
 
 export function Hero() {
+  const photoAnchorRef = useRef<HTMLDivElement>(null)
+
   return (
     <section 
       id="hero" 
-      className="flex min-h-screen flex-col items-center justify-center px-6 text-center"
-      >
-        {/*Espaço reservado para a foto -ProfileOrbit é fixed, isso só evita sobreposição de Layout*/}
-        <div className="hidden shrink-0 lg:block" style={{ width: 280 }} />
-        
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center lg:flex-row lg:items-center lg:justify-center lg:gap-16 lg:px-24 lg:text-left"      >
+        <MatrixRain className="opacity-40 [mask-image:linear-gradient(to_left,black_40%,transparent_75%)]" />
+
+        <ProfileOrbit {...({ anchorRef: photoAnchorRef } as any)} />
+
+        {/*Espaço Reservado - define onde a foto está alocada antes de encolher*/}
+        <div ref={photoAnchorRef} className="hidden shrink-0 lg:block" style={{ width: 280, height: 280 }} />
+
+        <div className="relative flex flex-col items-center lg:items-start">
         <div className="flex flex-col items-center lg:items-start">
       <FadeIn>
         <p className="font-mono text-sm text-accent">{heroData.greeting}</p>
@@ -106,6 +115,7 @@ export function Hero() {
             </a>
         </div>
       </FadeIn>
+    </div>
     </div>
     </section>
   )
