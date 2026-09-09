@@ -1,14 +1,19 @@
 import { Section } from '@/components/ui/Section'
 import { FadeIn } from '@/components/motion/FadeIn'
 import { educationData } from '@/data/education'
+import { ScrollFloat } from './ui/ScrollFloat';
 
 
 export function Education() {
   return (
     <section id="education">
-      <FadeIn>
-        <h2 className="font-mono text-sm text-accent">Formação</h2>
-      </FadeIn>
+      <ScrollFloat
+  containerClassName="font-mono text-sm text-accent"
+  scrollStart="top bottom-=10%"
+  scrollEnd="bottom bottom-=30%"
+>
+  Experiência
+</ScrollFloat>
 
       <div className="mt-8 space-y-6 border-l border-border pl-6">
         {educationData.map((item, i) => (

@@ -8,6 +8,9 @@ import { MatrixRain } from '@/components/motion/MatrixRain'
 import { Button } from "@/components/Button"
 import { FadeIn } from "@/components/motion/FadeIn"
 import { ProfileOrbit } from '@/components/motion/ProfileOrbit'
+import { LogoLoop } from '@/components/ui/LogoLoop'
+import { ScrollFloat } from '@/components/ui/ScrollFloat'
+import { getTechLogos } from '@/data/tech-icons'
 
 export function Hero() {
   const photoAnchorRef = useRef<HTMLDivElement>(null)
@@ -29,11 +32,13 @@ export function Hero() {
         <p className="font-mono text-sm text-accent">{heroData.greeting}</p>
       </FadeIn>
 
-      <FadeIn delay={0.1}>
-        <h1 className="mt-3 text 4xl font-bold tracking-tight text-text-primary sm:text-6xl">
-          {heroData.name}
-        </h1>
-      </FadeIn>
+      <ScrollFloat
+  containerClassName="font-mono text-sm text-accent"
+  scrollStart="top bottom-=10%"
+  scrollEnd="bottom bottom-=30%"
+>
+  {heroData.name}
+</ScrollFloat>
 
       <FadeIn delay={0.2}>
         <p className="mt-2 text-lg text-text-secondary ">
@@ -48,16 +53,13 @@ export function Hero() {
       </FadeIn>
 
       <FadeIn delay={0.4}>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-          {heroData.stack.map((tech) => (
-            <span
-            key={tech}
-            className="rounded-full border border-border px-3 py-1 font-mono text-xs texte-text-secondary" 
-            >
-            {tech}
-          </span>
-          ))}
-          </div>
+        <LogoLoop
+    logos={getTechLogos(heroData.stack)}
+    speed={30}
+    logoHeight={22}
+    className="mx-auto max-w-md"
+    ariaLabel="Tecnologias principais"
+  />
       </FadeIn>
 
       <FadeIn delay={0.5}>

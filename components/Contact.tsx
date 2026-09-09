@@ -5,16 +5,18 @@ import { FadeIn } from '@/components/motion/FadeIn'
 import { ContactForm } from '@/components/ContactForm'
 import { heroData } from '@/data/hero'
 import { a } from 'framer-motion/client';
+import { ScrollFloat } from './ui/ScrollFloat';
 
 export function Contact() {
   return (
     <section id="contact">
-      <FadeIn>
-        <h2 className="font-mono text-sm text-accent">Contato</h2>
-        <p className="mt-2 max-w-md text-text-secondary">
-          Tem um projeto ou oportunidade em mente? Vamos conversar.
-        </p>
-      </FadeIn>
+      <ScrollFloat
+  containerClassName="font-mono text-sm text-accent"
+  scrollStart="top bottom-=10%"
+  scrollEnd="bottom bottom-=30%"
+>
+  Contato
+</ScrollFloat>
 
       <div className="mt-8 grid gap-10 lg:grid-cols-2">
         <FadeIn delay={0.1}>

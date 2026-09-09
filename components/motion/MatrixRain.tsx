@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 
-const CHARS = '01アイウエオカキクケコ<>/{}[]#$%'
+const CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>/{}[]|;:,.?!@#$%^&*'
 
 export function MatrixRain({ className = '' }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -18,10 +18,11 @@ export function MatrixRain({ className = '' }: { className?: string }) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const fontSize = 16
+    const fontSize = 14
     let columns = 0
     let drops: number[] = []
     let animationId: number
+    let resizeObserver: ResizeObserver
 
     const setup = () => {
       const dpr = window.devicePixelRatio || 1
@@ -30,44 +31,58 @@ export function MatrixRain({ className = '' }: { className?: string }) {
       canvas.height = height * dpr
       canvas.style.width = `${width}px`
       canvas.style.height = `${height}px`
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.scale(dpr, dpr)
 
-      columns = Math.floor(width / fontSize)
-      drops = Array.from({ length: columns }, () => Math.random() * -50)
+      const newColumns = Math.floor(width / fontSize)
+      if (newColumns > drops.length) {
+        for (let i = drops.length; i < newColumns; i++) {
+          drops.push(Math.random() * -100)
+        }
+      }
+
+      drops = drops.slice(0, newColumns)
+      while (drops.length < newColumns) {
+        drops.push(Math.random() * -100)
+      }
+      columns = newColumns
     }
 
     setup()
-    const resizeObserver = new ResizeObserver(setup)
+    resizeObserver = new ResizeObserver(setup)
     resizeObserver.observe(container)
 
-    let lastFrame = 0
-    const draw = (timestamp: number) => {
-      animationId = requestAnimationFrame(draw)
-      if (timestamp - lastFrame < 60) return // ~16fps, suficiente para o efeito e leve na CPU
-      lastFrame = timestamp
-
+    const draw = () => {
       const { width, height } = container.getBoundingClientRect()
 
-      ctx.fillStyle = 'rgba(9, 9, 11, 0.08)'
+      ctx.fillStyle = 'rgba(9, 9, 11, 0.06)'
       ctx.fillRect(0, 0, width, height)
 
       ctx.font = `${fontSize}px monospace`
 
-      drops.forEach((y, i) => {
+      for (let i = 0; i < columns; i++) {
         const char = CHARS[Math.floor(Math.random() * CHARS.length)] ?? ' '
+        const currentDrop = drops[i] ?? 0
+        const y = currentDrop * fontSize
         const x = i * fontSize
 
-        // caractere na "cabeça" da coluna, mais brilhante
-        ctx.fillStyle = 'rgba(103, 232, 249, 0.7)'
-        ctx.fillText(char, x, y * fontSize)
+        const alpha = Math.random() > 0.95 ? 1 : Math.random() * 0.5 + 0.1
 
-        if (y * fontSize > height && Math.random() > 0.975) {
+        ctx.fillStyle =
+          Math.random() > 0.98
+            ? `rgba(255, 255, 255, ${alpha})`
+            : `rgba(34, 211, 238, ${alpha})`
+
+        ctx.fillText(char, x, y)
+
+        if (y > height && Math.random() > 0.975) {
           drops[i] = 0
         }
-        drops[i] = y + 1
-      })
+        drops[i] = (drops[i] ?? 0) + 0.5
+      }
+      animationId = requestAnimationFrame(draw)
     }
-
+    
     animationId = requestAnimationFrame(draw)
 
     return () => {

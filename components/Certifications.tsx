@@ -3,15 +3,19 @@ import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import{ FadeIn } from '@/components/motion/FadeIn'
 import { certificationsData } from '@/data/certifications'
+import { ScrollFloat } from './ui/ScrollFloat';
 
 
 export function Certifications() {
   return (
     <section id="certifications" className="flex min-h-screen items-center justify-center">
-      <FadeIn>
-        <h2 className="font-mono text-sm text-accent">Certificações</h2>
-      </FadeIn>
-
+<ScrollFloat
+  containerClassName="font-mono text-sm text-accent"
+  scrollStart="top bottom-=10%"
+  scrollEnd="bottom bottom-=30%"
+>
+  Certificado
+</ScrollFloat>
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {certificationsData.map((cert, i) => (
           <FadeIn key={cert.name} delay={i * 0.1}>

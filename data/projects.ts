@@ -1,5 +1,6 @@
 export interface Project {
   name: string
+  summary: string // resumo curto para o card
   problem: string
   solution: string
   stack: string[]
@@ -14,10 +15,9 @@ export interface Project {
 export const projectsData: Project[] = [
   {
     name: 'Sistema de Patelas',
-    problem:
-      'Gestão manual de moldes e prensas de vulcanização, sem controle centralizado de montagem e componentes.',
-    solution:
-      'Sistema web para gerenciamento de moldes/prensas de vulcanização, incluindo controle de patelas e diafragmas com fluxo completo de cadastro e montagem.',
+    summary: 'Gestão de moldes e prensas de vulcanização direto no chão de fábrica.',
+    problem: 'Gestão manual de moldes e prensas de vulcanização, sem controle centralizado de montagem e componentes — risco de montar peças defeituosas (NOK) por falta de rastreabilidade.',
+    solution: 'Sistema web para gerenciamento de moldes/prensas de vulcanização, com controle de patelas e diafragmas cobrindo todo o fluxo de cadastro e montagem, pensado para uso direto no chão de fábrica.',
     stack: ['JavaScript', 'HTML', 'CSS', 'Node.js', 'Supabase', 'Vercel'],
     features: [
       'Autenticação de usuários',
@@ -31,18 +31,17 @@ export const projectsData: Project[] = [
   },
   {
     name: 'ERP SaaS',
+    summary: 'Plataforma de gestão para micro-empreendedores de nail design, cílios e sobrancelhas.',
     problem: 'Micro-empreendedores de nail design, cílios e sobrancelhas geralmente gerenciam agendamentos e clientes de forma manual, sem visibilidade sobre o desempenho do próprio negócio.',
-    solution: 'Sistema ERP em modelo SaaS voltado para pequenos vendedores brasileiros.',
-    stack: [
-        'TypeScript', 'CSS', 'Supabase', 'Lovable'
-    ],
+    solution: 'Plataforma SaaS de gestão para esse nicho, com agendamento, controle de clientes e um dashboard que mostra os serviços mais realizados no mês.',
+    stack: ['TypeScript', 'CSS', 'Supabase', 'Lovable'],
     features: [
       'Agendamento de clientes',
       'Controle de clientes',
-      'Dashboard com indicadores de maiores vendas'
+      'Dashboard com os serviços mais realizados no mês',
     ],
     challenges: 'Trabalhar com uma ferramenta de desenvolvimento assistido por IA (Lovable) exigiu se adaptar a estruturas diferentes das que eu escrevia manualmente — um processo que contribuiu diretamente para meu aprendizado em como interagir com IA no desenvolvimento.',
-    result: 'Finalizando a etapa de aprovação pelas clientes, já em uso e com últimos resultados',
+    result: 'Em produção, com os primeiros usuários testando a plataforma.',
     demoUrl: 'https://bellenailsapp.com',
   },
 ]

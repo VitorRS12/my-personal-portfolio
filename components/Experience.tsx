@@ -1,14 +1,18 @@
 import { Section } from '@/components/ui/Section'
 import { FadeIn } from '@/components/motion/FadeIn'
 import { experienceData } from '@/data/experience'
+import { ScrollFloat } from './ui/ScrollFloat';
 
 export function Experience() {
   return (
     <section id="experience">
-      <FadeIn>
-        <h2 className= "font-mono text-sm text-accent">Experiência</h2>
-      </FadeIn>
-
+<ScrollFloat
+  containerClassName="font-mono text-sm text-accent"
+  scrollStart="top bottom-=10%"
+  scrollEnd="bottom bottom-=30%"
+>
+  Projetos
+</ScrollFloat>
       <div className="mt-8 space-y-6 border-l border-border pl-6">
         {experienceData.map((item, i) => (
           <FadeIn key={item.role} delay={i * 0.1}>

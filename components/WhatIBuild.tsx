@@ -2,15 +2,19 @@ import { whatIBuildData } from '@/data/whatibuild'
 import { Section } from '@/components/ui/Section' 
 import { FadeIn } from '@/components/motion/FadeIn'
 import { Card } from '@/components/ui/Card'
+import { ScrollFloat } from './ui/ScrollFloat';
 
 
 export function WhatIBuild() {
   return (
     <Section id="what-i-build">
-      <FadeIn>
-        <h2 className="font-mono text-sm text-accent">O que eu construo</h2>
-      </FadeIn>
-
+<ScrollFloat
+  containerClassName="font-mono text-sm text-accent"
+  scrollStart="top bottom-=10%"
+  scrollEnd="bottom bottom-=30%"
+>
+  O que eu construo
+</ScrollFloat>
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         {whatIBuildData.map((item, i) => {
           const Icon = item.icons
