@@ -4,8 +4,9 @@ import {
   SiHtml5, SiCss, SiNodedotjs, SiPhp, SiLaravel, SiPostgresql,
   SiSupabase, SiGit, SiGithub, SiVercel,
   SiDocker, SiLinux, SiCplusplus, SiMongodb,
+  SiC,
 } from 'react-icons/si'
-import { Database, Code2, Cloud, Monitor, FileSpreadsheet } from 'lucide-react'
+import { Database, Code2, Cloud, Monitor, FileSpreadsheet, Server} from 'lucide-react'
 
 const techIconMap: Record<string, ReactNode> = {
   TypeScript: <SiTypescript />,
@@ -34,11 +35,16 @@ const techIconMap: Record<string, ReactNode> = {
   Azure: <Cloud />,
   Excel: <FileSpreadsheet />,
   SQL: <Database />,
-  C: <Code2 />,
+  c: <SiC />,
   'Power BI': <Code2 />,
   'Power Query': <Code2 />,
   DAX: <Code2 />,
   Lovable: <Code2 />,
+  'apis rest': <Server />, 
+}
+
+function normalize(name: string) {
+  return name.trim().toLowerCase()
 }
 
 export function getTechLogos(names: readonly string[]) {

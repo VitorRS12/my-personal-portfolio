@@ -54,7 +54,7 @@ return () => observer.disconnect()
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#hero" className="font-mono text-sm text-text-primary">
-          EV
+          { '{EV}' }
         </a>
 
        <div className="hidden md:block">
@@ -72,13 +72,17 @@ return () => observer.disconnect()
       </div>
 
       {isOpen && (
-        <nav className="flex flex-col gap-1 border-t border-border bg-background px-6 py-4 md:hidden">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="py-2 text-sm text-text-secondary hover:text-text-primary"
+              className={cn(
+                'cursor-target pb-05 text-sm font-medium transition-colors',
+                activeSection === link.href
+                ? 'border-b border-accent text-accent'
+                : 'text-text-secondary hover: text-text-primary'
+              )}
             >
               {link.label}
             </a>
