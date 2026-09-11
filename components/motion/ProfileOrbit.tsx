@@ -82,7 +82,7 @@ export function ProfileOrbit({ anchorRef }: ProfileOrbitProps) {
           alt="Foto de Edelson Vitor"
           fill
           sizes={`${boxSize}px`}
-          className="object-contain"
+          className="object-contain [filter:brightness(0.95)_saturate(0.85)]"
           priority
         />
       </motion.div>

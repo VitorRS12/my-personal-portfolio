@@ -11,6 +11,7 @@ import { ProfileOrbit } from '@/components/motion/ProfileOrbit'
 import { LogoLoop } from '@/components/ui/LogoLoop'
 import { ScrollFloat } from '@/components/ui/ScrollFloat'
 import { getTechLogos } from '@/data/tech-icons'
+import { WordReveal } from './motion/WordReveal';
 
 export function Hero() {
   const photoAnchorRef = useRef<HTMLDivElement>(null)
@@ -29,7 +30,10 @@ export function Hero() {
         <div className="relative flex flex-col items-center lg:items-start">
         <div className="flex flex-col items-center lg:items-start">
       <FadeIn>
-        <p className="font-mono text-sm text-accent">{heroData.greeting}</p>
+        <div className="flex items-center gap-3">
+          <span className="h-px w-8 bg-accent" />
+          <p className="font-mono text-sm tracking-wide text-accent">{heroData.greeting}</p>
+        </div>
       </FadeIn>
 
       <ScrollFloat
@@ -46,11 +50,7 @@ export function Hero() {
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.3}>
-        <p className="mt-6 max-w-xl text-text-secondary">
-          {heroData.description}
-        </p>
-      </FadeIn>
+      <WordReveal text={heroData.description} className="mt=6 max-w-xl text-text-secondary" />
 
       <FadeIn delay={0.4}>
         <LogoLoop

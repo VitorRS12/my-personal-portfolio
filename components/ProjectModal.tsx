@@ -34,7 +34,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <motion.div
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }} 
-                  className="fixed isent-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm px-4"
+                  className="fixed insent-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm px-4"
                   onClick={onClose}
                   role="presentation"
                   >

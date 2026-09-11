@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react'
+import { PowerBiIcon, ExcelIcon } from '@/data/Icons/icons'
 import {
   SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss,
   SiHtml5, SiCss, SiNodedotjs, SiPhp, SiLaravel, SiPostgresql,
   SiSupabase, SiGit, SiGithub, SiVercel,
   SiDocker, SiLinux, SiCplusplus, SiMongodb,
-  SiC,
-} from 'react-icons/si'
-import { Database, Code2, Cloud, Monitor, FileSpreadsheet, Server} from 'lucide-react'
+  SiC,} from 'react-icons/si'
+import { Database, Code2, Cloud, Monitor, FileSpreadsheet, Server } from 'lucide-react'
 
 const techIconMap: Record<string, ReactNode> = {
   TypeScript: <SiTypescript />,
@@ -36,8 +36,8 @@ const techIconMap: Record<string, ReactNode> = {
   Excel: <FileSpreadsheet />,
   SQL: <Database />,
   c: <SiC />,
-  'Power BI': <Code2 />,
-  'Power Query': <Code2 />,
+  'Power BI': <PowerBiIcon>{null}</PowerBiIcon>,
+  'Power Query': <ExcelIcon>{null}</ExcelIcon>,
   DAX: <Code2 />,
   Lovable: <Code2 />,
   'apis rest': <Server />, 
