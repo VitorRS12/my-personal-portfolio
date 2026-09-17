@@ -44,7 +44,7 @@ export function ScrollFloat({
     if (!el) return
 
     const scroller = scrollContainerRef?.current ?? window
-    const charElements = el.querySelectorAll('span')
+    const charElements = el.querySelectorAll('.scroll-float-char')
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -80,8 +80,16 @@ export function ScrollFloat({
   }, [scrollContainerRef, animationDuration, ease, scrollStart, scrollEnd, stagger])
 
   return (
-    <h2 ref={containerRef} className={`overflow-hidden ${containerClassName}`}>
-      <span className={`inline-block ${textClassName}`}>{splitText}</span>
+    <h2 ref={containerRef} className={`
+      m-0
+      overflow-hidden 
+      bg-transparent
+      p-0
+      border-0
+      rounded-none
+      shadow-none
+    ${containerClassName}`}>
+      <span className={`inline-block bg-transparent ${textClassName}`}>{splitText}</span>
     </h2>
   )
 }

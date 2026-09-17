@@ -12,28 +12,31 @@ export function Footer() {
 
         <div className="flex items-center gap-5">
           
+          <a
             href={heroData.links.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
             className="cursor-target text-text-secondary transition-colors hover:text-accent"
-          <a>
+          >
             <FaGithub size={18} />
           </a>
           
+          <a
             href={heroData.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
             className="cursor-target text-text-secondary transition-colors hover:text-accent"
-          <a>
+          >
             <FaLinkedin size={18} />
           </a>
           
+          <a
             href={`mailto:${heroData.links.email}`}
             aria-label="E-mail"
             className="cursor-target text-text-secondary transition-colors hover:text-accent"
-          <a>
+          >
             <Mail size={18} />
           </a>
         </div>

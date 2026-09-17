@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { PowerBiIcon, ExcelIcon, CIcon } from '@/data/Icons/icons'
+import { PowerBiIcon, ExcelIcon, WindowsIcon, PowerQueryIcon, ApiRestIcon, VsCodeIcon } from '@/data/Icons/icons'
 import {
   SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss,
   SiHtml5, SiCss, SiNodedotjs, SiPhp, SiLaravel, SiPostgresql,
@@ -25,23 +25,23 @@ const techIconMap: Record<string, ReactNode> = {
   Supabase: <SiSupabase />,
   Git: <SiGit />,
   GitHub: <SiGithub />,
-  'VS Code': <Code2 />,
+  'VS Code': <VsCodeIcon>{null}</VsCodeIcon>,
   Vercel: <SiVercel />,
   Docker: <SiDocker />,
   Linux: <SiLinux />,
-  Windows: <Monitor />,
+  Windows: <WindowsIcon>{null}</WindowsIcon>,
   'C++': <SiCplusplus />,
   'Mongo DB': <SiMongodb />,
   MongoDB: <SiMongodb />,
   Azure: <Cloud />,
-  Excel: <FileSpreadsheet />,
+  Excel: <ExcelIcon>{null}</ExcelIcon>,
   SQL: <Database />,
-  c: <CIcon>{null}</CIcon>,
+  C: <SiC />,
   'Power BI': <PowerBiIcon>{null}</PowerBiIcon>,
-  'Power Query': <ExcelIcon>{null}</ExcelIcon>,
+  'Power Query': <PowerQueryIcon>{null}</PowerQueryIcon>,
   DAX: <Code2 />,
   Lovable: <Code2 />,
-  'apis rest': <Server />, 
+  'APIs REST': <ApiRestIcon>{null}</ApiRestIcon>, 
 }
 
 function normalize(name: string) {

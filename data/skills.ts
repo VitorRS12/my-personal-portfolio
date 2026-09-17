@@ -4,7 +4,7 @@ export const skillsData = [
     {
         category: 'Front-end',
         capability: 'Interface web responsivas, tipadas e perfomáticas',
-        stack:['TypeScript','JavaScrip','React','Next.js','Tailwind CSS','HTML','CSS']
+        stack:['TypeScript','JavaScript','React','Next.js','Tailwind CSS','HTML','CSS']
     },
     {
         category: 'Back-end',
